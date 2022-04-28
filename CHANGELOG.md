@@ -1,5 +1,16 @@
 # Changelog
 
+## [unreleased]
+
+### Added
+
+- BaseParentField to be extended by ACF fields that have sub_fields (enable recursive build and transform)
+- ACF Layout field (usage of BaseSection is deprecated)
+
+### Changed
+
+- Add ACF registration parameters to BaseField constructor (passing those via the build method is deprecated)
+
 ## [v2.2.0] - 17.02.2022
 
 ### Added

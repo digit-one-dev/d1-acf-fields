@@ -2,6 +2,9 @@
 
 namespace Towa\Acf;
 
+/**
+ * @deprecated (use Fields\Layout instead)
+ */
 abstract class BaseSection
 {
     private $key;

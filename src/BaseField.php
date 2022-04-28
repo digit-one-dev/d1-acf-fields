@@ -11,14 +11,16 @@ class BaseField
     protected $name;
     protected $label;
     private static $search_keys;
+    protected $args = [];   
     private $wpml_preference;
 
-    public function __construct($prefix, $name = null, $label = null, $is_search_key = false)
+    public function __construct($prefix = '', $name = null, $label = null, $args = [], $is_search_key = false, )
     {
         $this->prefix = $prefix;
         $this->set_name($name);
         $this->set_label($label);
         $this->set_key($this->prefix . '_' . $this->get_name());
+        $this->add_args($args);
 
         if ($is_search_key) {
             $this->add_as_search_key();
@@ -42,9 +44,13 @@ class BaseField
             'wpml_cf_preferences' => $this->get_wpml_translation_preference(),
         ];
 
-        return array_merge($defaults, $parameter);
+        return array_merge($defaults, $parameter, $this->args);
     }
 
+    public function transform($data)
+    {
+        return $data;
+    }
 
     /**
      * @param $name
@@ -62,6 +68,18 @@ class BaseField
     public function get_name()
     {
         return $this->name;
+    }
+    
+    /**
+     * @param $label
+     *
+     * @return string
+     */
+    protected function with_label($label)
+    {
+        $this->set_label($label);
+
+        return $this;
     }
 
     /**
@@ -98,6 +116,24 @@ class BaseField
     public function get_key()
     {
         return $this->key;
+    }
+
+    /**
+     * @param $args
+     *
+     * @return string
+     */
+    private function add_args($args = [])
+    {
+        $this->args = array_merge($this->args, $args);
+    }
+
+    /**
+     * @return string
+     */
+    public function get_args()
+    {
+        return $this->args;
     }
 
     /**
