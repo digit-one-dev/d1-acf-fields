@@ -1,6 +1,6 @@
 <?php
 
-namespace Towa\Acf;
+namespace DigitOne\Acf;
 
 class FieldGroup
 {

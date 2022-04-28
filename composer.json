@@ -22,10 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Towa\\Acf\\": "src/"
+            "DigitOne\\Acf\\": "src/"
         }
     },
     "require": {
-        "illuminate/support": "^9.10"
+        "illuminate/support": "^8.0.0"
     }
 }

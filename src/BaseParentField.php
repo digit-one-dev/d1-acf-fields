@@ -1,8 +1,8 @@
 <?php
 
-namespace Towa\Acf;
+namespace DigitOne\Acf;
 
-use Towa\Acf\BaseField;
+use DigitOne\Acf\BaseField;
 
 class BaseParentField extends BaseField
 {

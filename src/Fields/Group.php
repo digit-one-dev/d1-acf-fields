@@ -1,8 +1,8 @@
 <?php
 
-namespace Towa\Acf\Fields;
+namespace DigitOne\Acf\Fields;
 
-use Towa\Acf\BaseParentField;
+use DigitOne\Acf\BaseParentField;
 
 class Group extends BaseParentField
 {

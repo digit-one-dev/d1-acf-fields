@@ -1,8 +1,8 @@
 <?php
 
-namespace Towa\Acf;
+namespace DigitOne\Acf;
 
-use Towa\Acf\Helper\AcfWpmlHelper;
+use DigitOne\Acf\Helper\AcfWpmlHelper;
 
 class BaseField
 {

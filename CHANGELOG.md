@@ -10,6 +10,7 @@
 ### Changed
 
 - Add ACF registration parameters to BaseField constructor (passing those via the build method is deprecated)
+- Namespace of this package
 
 ## [v2.2.0] - 17.02.2022
 
