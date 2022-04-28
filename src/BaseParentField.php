@@ -13,7 +13,7 @@ class BaseParentField extends BaseField
      * 
      * @return BaseParentField the updated instance
      */
-    public function with_sub_fields($sub_fields = [])
+    public function sub_fields($sub_fields = [])
     {
         $this->set_sub_fields($sub_fields);
 
@@ -31,6 +31,8 @@ class BaseParentField extends BaseField
                   error_log("WARN: set_sub_fields called with an Array that contains something that is not of type BaseField: " . print_r($field, true));
                   return false;
               }
+
+              $field->set_prefix($this->get_key());
 
               return [ $field->get_name() => $field ];
             })->filter()->toArray();

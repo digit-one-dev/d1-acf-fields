@@ -16,7 +16,7 @@ class BaseField
 
     public function __construct($prefix = '', $name = null, $label = null, $args = [], $is_search_key = false, )
     {
-        $this->prefix = $prefix;
+        $this->set_prefix($prefix);
         $this->set_name($name);
         $this->set_label($label);
         $this->set_key($this->prefix . '_' . $this->get_name());
@@ -52,6 +52,49 @@ class BaseField
         return $data;
     }
 
+
+    /**
+     * @param $prefix
+     *
+     * @return string
+     */
+    protected function prefix($prefix)
+    {
+        $this->set_prefix($prefix);
+
+        return $this;
+    }
+
+    /**
+     * @param $prefix
+     *
+     * @return string
+     */
+    protected function set_prefix($prefix)
+    {
+        $this->prefix = $prefix ?? $this->prefix;
+    }
+
+    /**
+     * @return string
+     */
+    public function get_prefix()
+    {
+        return $this->prefix;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return string
+     */
+    protected function name($name)
+    {
+        $this->set_name($name);
+
+        return $this;
+    }
+
     /**
      * @param $name
      *
@@ -75,7 +118,7 @@ class BaseField
      *
      * @return string
      */
-    protected function with_label($label)
+    protected function label($label)
     {
         $this->set_label($label);
 
@@ -105,6 +148,18 @@ class BaseField
      *
      * @return string
      */
+    protected function key($key)
+    {
+        $this->set_key($key);
+
+        return $this;
+    }
+
+    /**
+     * @param $key
+     *
+     * @return string
+     */
     private function set_key($key)
     {
         $this->key = $key;
@@ -116,6 +171,18 @@ class BaseField
     public function get_key()
     {
         return $this->key;
+    }
+
+    /**
+     * @param $args
+     *
+     * @return string
+     */
+    protected function args($args)
+    {
+        $this->add_args($args);
+
+        return $this;
     }
 
     /**
@@ -159,6 +226,18 @@ class BaseField
     public static function get_search_keys()
     {
         return self::$search_keys;
+    }
+
+    /**
+     * @param $wpml_translation_preference
+     *
+     * @return string
+     */
+    protected function wpml_translation_preference($wpml_translation_preference)
+    {
+        $this->set_wpml_translation_preference($wpml_translation_preference);
+
+        return $this;
     }
 
     /**
