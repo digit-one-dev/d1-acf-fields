@@ -3,9 +3,14 @@
 namespace DigitOne\Acf;
 
 use DigitOne\Acf\Helper\AcfWpmlHelper;
+use DigitOne\Acf\OptionTraits\Instructions;
+use DigitOne\Acf\OptionTraits\Required;
 
 class BaseField
 {
+    use Instructions;
+    use Required;
+
     protected $prefix;
     protected $name;
     protected $label;
@@ -39,7 +44,7 @@ class BaseField
      *
      * @return array
      */
-    public function build(array $parameter = [])
+    public function build(array $parameter = [])    
     {
         $defaults = [
             'key'   => $this->get_key(),
@@ -116,36 +121,6 @@ class BaseField
     public function get_name()
     {
         return $this->name;
-    }
-
-    /**
-     * @param $instructions
-     *
-     * @return string
-     */
-    public function instructions($instructions)
-    {
-        $this->set_instructions($instructions);
-
-        return $this;
-    }
-
-    /**
-     * @param $instructions
-     *
-     * @return string
-     */
-    public function set_instructions($instructions)
-    {
-        $this->args['instructions'] = $instructions;
-    }
-
-    /**
-     * @return string
-     */
-    public function get_instructions()
-    {
-        return $this->args['instructions'];
     }
     
     /**
