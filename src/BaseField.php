@@ -6,7 +6,6 @@ use DigitOne\Acf\Helper\AcfWpmlHelper;
 
 class BaseField
 {
-    private $key;
     protected $prefix;
     protected $name;
     protected $label;
@@ -19,13 +18,19 @@ class BaseField
         $this->set_prefix($prefix);
         $this->set_name($name);
         $this->set_label($label);
-        $this->set_key($this->prefix . '_' . $this->get_name());
         $this->add_args($args);
 
         if ($is_search_key) {
             $this->add_as_search_key();
         }
+
+        $this->post_construct();
     }
+
+    /**
+     * Method to be extended by subclasses to add their specific logic after construction.
+     */
+    public function post_construct() {}
 
     /**
      * $parameter to override
@@ -58,7 +63,7 @@ class BaseField
      *
      * @return string
      */
-    protected function prefix($prefix)
+    public function prefix($prefix)
     {
         $this->set_prefix($prefix);
 
@@ -70,7 +75,7 @@ class BaseField
      *
      * @return string
      */
-    protected function set_prefix($prefix)
+    public function set_prefix($prefix)
     {
         $this->prefix = $prefix ?? $this->prefix;
     }
@@ -88,7 +93,7 @@ class BaseField
      *
      * @return string
      */
-    protected function name($name)
+    public function name($name)
     {
         $this->set_name($name);
 
@@ -100,7 +105,7 @@ class BaseField
      *
      * @return string
      */
-    protected function set_name($name)
+    public function set_name($name)
     {
         $this->name = $name ?? $this->name;
     }
@@ -112,13 +117,43 @@ class BaseField
     {
         return $this->name;
     }
+
+    /**
+     * @param $instructions
+     *
+     * @return string
+     */
+    public function instructions($instructions)
+    {
+        $this->set_instructions($instructions);
+
+        return $this;
+    }
+
+    /**
+     * @param $instructions
+     *
+     * @return string
+     */
+    public function set_instructions($instructions)
+    {
+        $this->args['instructions'] = $instructions;
+    }
+
+    /**
+     * @return string
+     */
+    public function get_instructions()
+    {
+        return $this->args['instructions'];
+    }
     
     /**
      * @param $label
      *
      * @return string
      */
-    protected function label($label)
+    public function label($label)
     {
         $this->set_label($label);
 
@@ -130,7 +165,7 @@ class BaseField
      *
      * @return string
      */
-    protected function set_label($label)
+    public function set_label($label)
     {
         $this->label = $label ?? $this->label;
     }
@@ -144,33 +179,11 @@ class BaseField
     }
 
     /**
-     * @param $key
-     *
-     * @return string
-     */
-    protected function key($key)
-    {
-        $this->set_key($key);
-
-        return $this;
-    }
-
-    /**
-     * @param $key
-     *
-     * @return string
-     */
-    private function set_key($key)
-    {
-        $this->key = $key;
-    }
-
-    /**
      * @return string
      */
     public function get_key()
     {
-        return $this->key;
+        return $this->prefix . '_' . $this->get_name();
     }
 
     /**
@@ -178,7 +191,7 @@ class BaseField
      *
      * @return string
      */
-    protected function args($args)
+    public function args($args)
     {
         $this->add_args($args);
 
