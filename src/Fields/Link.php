@@ -10,11 +10,5 @@ class Link extends BaseField
     protected $name = 'link';
     protected $label = 'Link';
     protected $type = 'link';
-
-    public function build(array $parameter = [])
-    {
-        $default = ['return_format' => 'array'];
-
-        return parent::build(array_merge($default, $parameter));
-    }
+    protected $args = ['return_format' => 'array'];
 }

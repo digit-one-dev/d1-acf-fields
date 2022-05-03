@@ -24,7 +24,7 @@ class BaseField
     protected $args = [];   
     private $wpml_preference;
 
-    public function __construct(string $prefix = '', string $name = null, string $label = null, array $args = [], bool $is_search_key = false, )
+    public function __construct(string $prefix = '', string $name = '', string $label = '', array $args = [], bool $is_search_key = false, )
     {
         $this->set_prefix($prefix);
         $this->set_name($name);
