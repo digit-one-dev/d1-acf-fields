@@ -24,7 +24,7 @@ class BaseField
     protected $args = [];   
     private $wpml_preference;
 
-    public function __construct($prefix = '', $name = null, $label = null, $args = [], $is_search_key = false, )
+    public function __construct(string $prefix = '', string $name = null, string $label = null, array $args = [], bool $is_search_key = false, )
     {
         $this->set_prefix($prefix);
         $this->set_name($name);
@@ -50,7 +50,7 @@ class BaseField
      *
      * @return array
      */
-    public function build(array $parameter = [])    
+    public function build(array $parameter = []): array    
     {
         $defaults = [
             'key'   => $this->get_key(),
@@ -63,18 +63,27 @@ class BaseField
         return array_merge($defaults, $parameter, $this->args);
     }
 
-    public function transform($data)
+    /**
+     * Transformes the raw acf data that was returned for this field.
+     * This method is intended to be overwritten by child classes that need 
+     * specific transform logic.
+     * 
+     * @param array $data to transform
+     * 
+     * @return array the transformed data
+     */
+    public function transform(array $data): array
     {
         return $data;
     }
 
 
     /**
-     * @param $prefix
+     * @param string $prefix
      *
-     * @return string
+     * @return self
      */
-    public function prefix($prefix)
+    public function prefix(string $prefix): self
     {
         $this->set_prefix($prefix);
 
@@ -82,11 +91,9 @@ class BaseField
     }
 
     /**
-     * @param $prefix
-     *
-     * @return string
+     * @param string $prefix
      */
-    public function set_prefix($prefix)
+    public function set_prefix(string $prefix)
     {
         $this->prefix = $prefix ?? $this->prefix;
     }
@@ -94,17 +101,17 @@ class BaseField
     /**
      * @return string
      */
-    public function get_prefix()
+    public function get_prefix(): string
     {
         return $this->prefix;
     }
 
     /**
-     * @param $name
+     * @param string $name
      *
-     * @return string
+     * @return self
      */
-    public function name($name)
+    public function name(string $name): self
     {
         $this->set_name($name);
 
@@ -112,11 +119,9 @@ class BaseField
     }
 
     /**
-     * @param $name
-     *
-     * @return string
+     * @param string $name
      */
-    public function set_name($name)
+    public function set_name(string $name)
     {
         $this->name = $name ?? $this->name;
     }
@@ -124,17 +129,17 @@ class BaseField
     /**
      * @return string
      */
-    public function get_name()
+    public function get_name(): string
     {
         return $this->name;
     }
     
     /**
-     * @param $label
+     * @param string $label
      *
-     * @return string
+     * @return self
      */
-    public function label($label)
+    public function label(string $label): self
     {
         $this->set_label($label);
 
@@ -142,11 +147,9 @@ class BaseField
     }
 
     /**
-     * @param $label
-     *
-     * @return string
+     * @param string $label
      */
-    public function set_label($label)
+    public function set_label(string $label)
     {
         $this->label = $label ?? $this->label;
     }
@@ -154,7 +157,7 @@ class BaseField
     /**
      * @return string
      */
-    public function get_label()
+    public function get_label(): string
     {
         return $this->label;
     }
@@ -162,17 +165,17 @@ class BaseField
     /**
      * @return string
      */
-    public function get_key()
+    public function get_key(): string
     {
-        return $this->prefix . '_' . $this->get_name();
+        return $this->get_prefix() . '_' . $this->get_name();
     }
 
     /**
-     * @param $args
+     * @param array $args
      *
-     * @return string
+     * @return self
      */
-    public function args($args)
+    public function args(array $args): self
     {
         $this->add_args($args);
 
@@ -180,26 +183,22 @@ class BaseField
     }
 
     /**
-     * @param $args
-     *
-     * @return string
+     * @param array $args
      */
-    private function add_args($args = [])
+    private function add_args(array $args = [])
     {
         $this->args = array_merge($this->args, $args);
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function get_args()
+    public function get_args(): array
     {
         return $this->args;
     }
 
-    /**
-     * @return $this
-     */
+
     private function add_as_search_key()
     {
         if (empty(self::$search_keys)) {
@@ -217,17 +216,17 @@ class BaseField
     /**
      * @return mixed
      */
-    public static function get_search_keys()
+    public static function get_search_keys(): mixed
     {
         return self::$search_keys;
     }
 
     /**
-     * @param $wpml_translation_preference
+     * @param int $wpml_translation_preference
      *
-     * @return string
+     * @return self
      */
-    protected function wpml_translation_preference($wpml_translation_preference)
+    public function wpml_translation_preference(int $wpml_translation_preference): self
     {
         $this->set_wpml_translation_preference($wpml_translation_preference);
 
@@ -235,18 +234,17 @@ class BaseField
     }
 
     /**
-     * @return number
+     * @return int
      */
-    public function get_wpml_translation_preference()
+    public function get_wpml_translation_preference(): int
     {
         return $this->wpml_preference ? $this->wpml_preference : AcfWpmlHelper::TRANSLATE;
     }
 
     /**
      * ACFML wpml_cf_preferences. Use the AcfWpmlHelper-Class to assign a value
-     *
      */
-    public function set_wpml_translation_preference($value)
+    public function set_wpml_translation_preference(int $value)
     {
         $this->wpml_preference = $value;
     }

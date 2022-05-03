@@ -11,9 +11,9 @@ class BaseParentField extends BaseField
     /**
      * @param array[BaseField] sub_fields of this field
      * 
-     * @return BaseParentField the updated instance
+     * @return self the updated instance
      */
-    public function sub_fields($sub_fields = [])
+    public function sub_fields(array $sub_fields = []): self
     {
         $this->set_sub_fields($sub_fields);
 
@@ -23,7 +23,7 @@ class BaseParentField extends BaseField
     /**
      * @param array[BaseField] sub_fields of this field
      */
-    public function set_sub_fields($sub_fields = [])
+    public function set_sub_fields(array $sub_fields = [])
     {
         $this->sub_fields = collect($sub_fields)
             ->mapWithKeys(function ($field, $key) {
@@ -38,7 +38,10 @@ class BaseParentField extends BaseField
             })->filter()->toArray();
     }
 
-    public function get_sub_fields()
+    /**
+     * @return array of sub_fields
+     */
+    public function get_sub_fields(): array
     {
         return $this->sub_fields;
     }
@@ -46,11 +49,11 @@ class BaseParentField extends BaseField
     /**
      * Builds the array for ACF registration. 
      *
-     * @param array  $parameter to be added to the registration (deprecated)
+     * @param array $parameter to be added to the registration (deprecated)
      *
      * @return array for ACF registration
      */
-    public function build($parameter = [])
+    public function build(array $parameter = []): array
     {
         if (!$this->sub_fields) {
             return parent::build($parameter);
@@ -66,7 +69,7 @@ class BaseParentField extends BaseField
      * 
      * @return array of acf registration data
      */
-    private function build_sub_fields()
+    private function build_sub_fields(): array
     {
         if (!$this->sub_fields) {
             return [];
@@ -82,11 +85,11 @@ class BaseParentField extends BaseField
      * Recursively calls the transform methods of the sub_fields
      * with their data.
      * 
-     * @param data that is returned by ACF get_field() for this field
+     * @param array data that is returned by ACF get_field() for this field
      * 
      * @return array of recursively transformed data
      */
-    public function transform($data)
+    public function transform(array $data): array
     {
         return collect($data)
             ->mapWithKeys(function($value, $key) {

@@ -5,9 +5,9 @@ namespace DigitOne\Acf\OptionTraits;
 
 trait Required {
     /**
-     * @return the updated instance
+     * @return self the updated instance
      */
-    public function required()
+    public function required(): self
     {
         $this->set_required(true);
 
@@ -15,17 +15,17 @@ trait Required {
     }
 
     /**
-     * @param $required
+     * @param bool $required
      */
-    public function set_required($required)
+    public function set_required(bool $required)
     {
         $this->args['required'] = $required;
     }
 
     /**
-     * @return Boolean
+     * @return bool
      */
-    public function is_required()
+    public function is_required(): bool
     {
         return $this->args['required'];
     }

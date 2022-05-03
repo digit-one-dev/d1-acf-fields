@@ -5,11 +5,11 @@ namespace DigitOne\Acf\OptionTraits;
 
 trait ConditionalLogic {
     /**
-     * @param $conditional_logic
+     * @param array $conditional_logic
      *
-     * @return the updated instance
+     * @return self the updated instance
      */
-    public function conditional_logic($conditional_logic)
+    public function conditional_logic(array $conditional_logic): self
     {
         $this->set_conditional_logic($conditional_logic);
 
@@ -17,18 +17,20 @@ trait ConditionalLogic {
     }
 
     /**
-     * @param $conditional_logic
+     * @param array $conditional_logic
+     * 
+     * @return self the updated instance
      */
-    public function set_conditional_logic($conditional_logic)
+    public function set_conditional_logic(array $conditional_logic)
     {
         $this->args['conditional_logic'] = $conditional_logic;
     }
 
     /**
-     * @return String
+     * @return array of conditional logic
      */
-    public function get_conditional_logic()
+    public function get_conditional_logic(): array
     {
-        return $this->args['conditional_logic'];
+        return $this->args['conditional_logic'] ?? [];
     }
 }
