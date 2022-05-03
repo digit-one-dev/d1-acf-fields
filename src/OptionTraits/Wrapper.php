@@ -5,11 +5,11 @@ namespace DigitOne\Acf\OptionTraits;
 
 trait Wrapper {
     /**
-     * @param $wrapper
+     * @param array $wrapper
      *
-     * @return the updated instance
+     * @return self the updated instance
      */
-    public function wrapper($wrapper)
+    public function wrapper(array $wrapper): self
     {
         $this->set_wrapper($wrapper);
 
@@ -17,17 +17,17 @@ trait Wrapper {
     }
 
     /**
-     * @param $wrapper
+     * @param array $wrapper
      */
-    public function set_wrapper($wrapper)
+    public function set_wrapper(array $wrapper)
     {
         $this->args['wrapper'] = $wrapper;
     }
 
     /**
-     * @return String
+     * @return array
      */
-    public function get_wrapper()
+    public function get_wrapper(): array
     {
         return $this->args['wrapper'];
     }

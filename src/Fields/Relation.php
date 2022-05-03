@@ -10,19 +10,8 @@ class Relation extends BaseField
     protected $name = 'relation';
     protected $type = 'relationship';
     protected $label = 'Relation';
-
-    /**
-     * @param array  $parameter
-     *
-     * @return array
-     */
-    public function build(array $parameter = [])
-    {
-        $add_to_defaults = [
-            'filters'   => [ 'search' ],
-            'return_format' => 'id',
-        ];
-
-        return parent::build(array_merge((array) $add_to_defaults, (array) $parameter));
-    }
+    protected $args = [
+        'filters'   => [ 'search' ],
+        'return_format' => 'id',
+    ];
 }

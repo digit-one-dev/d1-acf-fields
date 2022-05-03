@@ -29,7 +29,7 @@ class FieldGroup
     private $wrapper_group;
 
 
-    public function __construct($name, $label = '')
+    public function __construct(string $name, string $label = '')
     {
         $this->data['title'] = $label;
         $this->data['key']   = "group_{$name}";
@@ -39,12 +39,12 @@ class FieldGroup
     /**
      * Fetches the data of the fields of this FieldGroup
      * 
-     * @param post_id (optional) the post id to pass onto ACF get_field()
+     * @param mixed post_id (optional) the post id to pass onto ACF get_field()
      * @return FieldGroup the updated instance
      */
-    public function fetch($post_id = false)
+    public function fetch(mixed $post_id = false)
     {
-        $this->acf_data = get_field($this->wrapper_group->get_name(), $post_id);
+        $this->acf_data = get_field($this->wrapper_group->get_name(), $post_id) ?? [];
 
         return $this;
     }
@@ -59,7 +59,12 @@ class FieldGroup
         return $this->wrapper_group->transform($this->acf_data);
     }
 
-    public function for_cpt($cpt = 'post')
+    /**
+     * @param string $cpt
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function for_cpt(string $cpt = 'post')
     {
         $this->data['location'][] = [
             [
@@ -72,7 +77,12 @@ class FieldGroup
         return $this;
     }
 
-    public function for_all_cpts($cpts)
+    /**
+     * @param array $cpts
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function for_all_cpts(array $cpts)
     {
         $this->data['location'] = collect($cpts)->map(function ($cpt) {
             return [
@@ -87,7 +97,12 @@ class FieldGroup
         return $this;
     }
 
-    public function for_taxonomy($tax = '')
+    /**
+     * @param string $tax
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function for_taxonomy(string $tax = '')
     {
         $this->data['location'][] = [
             [
@@ -100,7 +115,12 @@ class FieldGroup
         return $this;
     }
 
-    public function for_menu($menu = '')
+    /**
+     * @param string $menu
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function for_menu(string $menu = '')
     {
         $this->data['location'][] = [
             [
@@ -114,14 +134,23 @@ class FieldGroup
     }
 
     /**
-     * @deprecated
+     * @deprecated use FieldGroup::location() instead
+     * 
+     * @param array $rule
+     * 
+     * @return FieldGroup the updated instance
      */
-    public function for_location($rule)
+    public function for_location(array $rule)
     {
         return $this->location($rule);
     }
 
-    public function location($rule)
+    /**
+     * @param array $rule
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function location(array $rule)
     {
         $this->data[ 'location' ][] = $rule;
 
@@ -129,9 +158,13 @@ class FieldGroup
     }
 
     /**
-     * @deprecated
+     * @deprecated use FieldGroup::sub_fields() instead
+     * 
+     * @param array $fields
+     * 
+     * @return FieldGroup the updated instance
      */
-    public function set_fields($fields)
+    public function set_fields(array $fields)
     {
         $this->data['fields'] = $fields;
 
@@ -143,6 +176,7 @@ class FieldGroup
      * (The wrapper_group is the one and only field of this FieldGroup)
      * 
      * @param array[BaseField] sub_fields
+     * 
      * @return FieldGroup the updated instance
      */
     public function sub_fields(array $sub_fields)
@@ -153,13 +187,24 @@ class FieldGroup
         return $this;
     }
 
-    public function set_setting($setting, $data)
+    /**
+     * @param string $setting
+     * @param mixed $data
+     * 
+     * @return FieldGroup the updated instance
+     */
+    public function set_setting(string $setting, mixed $data)
     {
         $this->data[ $setting ] = $data;
 
         return $this;
     }
 
+    /**
+     * @param array $settings
+     * 
+     * @return FieldGroup the updated instance
+     */
     public function settings(array $settings)
     {
         $this->data = array_merge($this->data, $settings);

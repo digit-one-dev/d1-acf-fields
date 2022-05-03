@@ -10,14 +10,8 @@ class TimePicker extends BaseField
     protected $name = 'time';
     protected $type = 'time_picker';
     protected $label = 'Time';
-
-    public function build(array $parameter = [])
-    {
-        $add_to_defaults = [
-            'display_format' => 'H:i',
-            'return_format'  => 'H:i',
-        ];
-
-        return parent::build(array_merge((array) $add_to_defaults, (array) $parameter));
-    }
+    protected $args = [
+        'display_format' => 'H:i',
+        'return_format'  => 'H:i',
+    ];
 }

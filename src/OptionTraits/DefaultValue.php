@@ -5,11 +5,11 @@ namespace DigitOne\Acf\OptionTraits;
 
 trait DefaultValue {
     /**
-     * @param $default_value
+     * @param mixed $default_value
      *
-     * @return the updated instance
+     * @return self the updated instance
      */
-    public function default_value($default_value)
+    public function default_value(mixed $default_value): self
     {
         $this->set_default_value($default_value);
 
@@ -17,17 +17,17 @@ trait DefaultValue {
     }
 
     /**
-     * @param $default_value
+     * @param mixed $default_value
      */
-    public function set_default_value($default_value)
+    public function set_default_value(mixed $default_value)
     {
         $this->args['default_value'] = $default_value;
     }
 
     /**
-     * @return String
+     * @return mixed
      */
-    public function get_default_value()
+    public function get_default_value(): mixed
     {
         return $this->args['default_value'];
     }

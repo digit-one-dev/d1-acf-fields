@@ -5,11 +5,11 @@ namespace DigitOne\Acf\OptionTraits;
 
 trait Instructions {
     /**
-     * @param $instructions
+     * @param string $instructions
      *
-     * @return the updated instance
+     * @return self the updated instance
      */
-    public function instructions($instructions)
+    public function instructions($instructions): self
     {
         $this->set_instructions($instructions);
 
@@ -17,7 +17,7 @@ trait Instructions {
     }
 
     /**
-     * @param $instructions
+     * @param string $instructions
      */
     public function set_instructions($instructions)
     {
@@ -25,9 +25,9 @@ trait Instructions {
     }
 
     /**
-     * @return String
+     * @return string
      */
-    public function get_instructions()
+    public function get_instructions(): string
     {
         return $this->args['instructions'];
     }

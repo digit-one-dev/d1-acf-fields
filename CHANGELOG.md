@@ -1,5 +1,15 @@
 # Changelog
 
+## [v3.0.1]
+
+### Changed
+
+- removed build methods from Fields (and use $args for default parameters instead)
+
+### Added
+
+- proper type hints
+
 ## [v3.0.0]
 
 ### Added
@@ -75,6 +85,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.0.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.1
 [v3.0.0]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.0
 [v2.2.0]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.2.0
 [v2.1.0]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.1.0
