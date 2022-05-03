@@ -1,5 +1,19 @@
 # Changelog
 
+## [v3.0.0]
+
+### Added
+
+- BaseParentField to be extended by ACF fields that have sub_fields (enable recursive build and transform)
+- ACF Layout field (usage of BaseSection is deprecated)
+- Full support for builder pattern on BaseField for common configurations
+
+### Changed
+
+- Add ACF registration parameters to BaseField constructor (passing those via the build method is deprecated)
+- Namespace of this package 
+- FieldGroup such that it uses a wrapper group internally to wrap its sub fields
+
 ## [v2.2.0] - 17.02.2022
 
 ### Added
@@ -61,6 +75,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.0.0]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.0
 [v2.2.0]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.2.0
 [v2.1.0]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.1.0
 [v2.0.1]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.0.1

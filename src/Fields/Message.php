@@ -1,8 +1,8 @@
 <?php
 
-namespace Towa\Acf\Fields;
+namespace DigitOne\Acf\Fields;
 
-use Towa\Acf\BaseField;
+use DigitOne\Acf\BaseField;
 
 class Message extends BaseField
 {

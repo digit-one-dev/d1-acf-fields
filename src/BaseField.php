@@ -1,29 +1,47 @@
 <?php
 
-namespace Towa\Acf;
+namespace DigitOne\Acf;
 
-use Towa\Acf\Helper\AcfWpmlHelper;
+use DigitOne\Acf\Helper\AcfWpmlHelper;
+use DigitOne\Acf\OptionTraits\Instructions;
+use DigitOne\Acf\OptionTraits\Required;
+use DigitOne\Acf\OptionTraits\DefaultValue;
+use DigitOne\Acf\OptionTraits\ConditionalLogic;
+use DigitOne\Acf\OptionTraits\Wrapper;
 
 class BaseField
 {
-    private $key;
+    use Instructions;
+    use Required;
+    use DefaultValue;
+    use ConditionalLogic;
+    use Wrapper;
+
     protected $prefix;
     protected $name;
     protected $label;
     private static $search_keys;
+    protected $args = [];   
     private $wpml_preference;
 
-    public function __construct($prefix, $name = null, $label = null, $is_search_key = false)
+    public function __construct($prefix = '', $name = null, $label = null, $args = [], $is_search_key = false, )
     {
-        $this->prefix = $prefix;
+        $this->set_prefix($prefix);
         $this->set_name($name);
         $this->set_label($label);
-        $this->set_key($this->prefix . '_' . $this->get_name());
+        $this->add_args($args);
 
         if ($is_search_key) {
             $this->add_as_search_key();
         }
+
+        $this->post_construct();
     }
+
+    /**
+     * Method to be extended by subclasses to add their specific logic after construction.
+     */
+    public function post_construct() {}
 
     /**
      * $parameter to override
@@ -32,7 +50,7 @@ class BaseField
      *
      * @return array
      */
-    public function build(array $parameter = [])
+    public function build(array $parameter = [])    
     {
         $defaults = [
             'key'   => $this->get_key(),
@@ -42,16 +60,63 @@ class BaseField
             'wpml_cf_preferences' => $this->get_wpml_translation_preference(),
         ];
 
-        return array_merge($defaults, $parameter);
+        return array_merge($defaults, $parameter, $this->args);
     }
 
+    public function transform($data)
+    {
+        return $data;
+    }
+
+
+    /**
+     * @param $prefix
+     *
+     * @return string
+     */
+    public function prefix($prefix)
+    {
+        $this->set_prefix($prefix);
+
+        return $this;
+    }
+
+    /**
+     * @param $prefix
+     *
+     * @return string
+     */
+    public function set_prefix($prefix)
+    {
+        $this->prefix = $prefix ?? $this->prefix;
+    }
+
+    /**
+     * @return string
+     */
+    public function get_prefix()
+    {
+        return $this->prefix;
+    }
 
     /**
      * @param $name
      *
      * @return string
      */
-    protected function set_name($name)
+    public function name($name)
+    {
+        $this->set_name($name);
+
+        return $this;
+    }
+
+    /**
+     * @param $name
+     *
+     * @return string
+     */
+    public function set_name($name)
     {
         $this->name = $name ?? $this->name;
     }
@@ -63,13 +128,25 @@ class BaseField
     {
         return $this->name;
     }
+    
+    /**
+     * @param $label
+     *
+     * @return string
+     */
+    public function label($label)
+    {
+        $this->set_label($label);
+
+        return $this;
+    }
 
     /**
      * @param $label
      *
      * @return string
      */
-    protected function set_label($label)
+    public function set_label($label)
     {
         $this->label = $label ?? $this->label;
     }
@@ -83,21 +160,41 @@ class BaseField
     }
 
     /**
-     * @param $key
+     * @return string
+     */
+    public function get_key()
+    {
+        return $this->prefix . '_' . $this->get_name();
+    }
+
+    /**
+     * @param $args
      *
      * @return string
      */
-    private function set_key($key)
+    public function args($args)
     {
-        $this->key = $key;
+        $this->add_args($args);
+
+        return $this;
+    }
+
+    /**
+     * @param $args
+     *
+     * @return string
+     */
+    private function add_args($args = [])
+    {
+        $this->args = array_merge($this->args, $args);
     }
 
     /**
      * @return string
      */
-    public function get_key()
+    public function get_args()
     {
-        return $this->key;
+        return $this->args;
     }
 
     /**
@@ -123,6 +220,18 @@ class BaseField
     public static function get_search_keys()
     {
         return self::$search_keys;
+    }
+
+    /**
+     * @param $wpml_translation_preference
+     *
+     * @return string
+     */
+    protected function wpml_translation_preference($wpml_translation_preference)
+    {
+        $this->set_wpml_translation_preference($wpml_translation_preference);
+
+        return $this;
     }
 
     /**

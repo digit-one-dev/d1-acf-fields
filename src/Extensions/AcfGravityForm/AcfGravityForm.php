@@ -11,7 +11,7 @@ License URI: http://opensource.org/licenses/MIT
 */
 
 // $version = 5 and can be ignored until ACF6 exists
-namespace Towa\Acf\Extensions\AcfGravityForm;
+namespace DigitOne\Acf\Extensions\AcfGravityForm;
 
 class AcfGravityForm
 {
