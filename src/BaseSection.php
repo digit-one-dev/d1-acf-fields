@@ -1,7 +1,10 @@
 <?php
 
-namespace Towa\Acf;
+namespace DigitOne\Acf;
 
+/**
+ * @deprecated (use Fields\Layout instead)
+ */
 abstract class BaseSection
 {
     private $key;

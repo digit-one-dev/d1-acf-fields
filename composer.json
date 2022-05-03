@@ -1,15 +1,15 @@
 {
-    "name": "towa/towa-acf-fields",
+    "name": "digit-one-dev/d1-acf-fields",
     "license": "MIT",
     "description": "ACF Fields Developer SDK",
     "authors": [
         {
-            "name": "David Seidl",
-            "email": "david.seidl@towa.at"
+            "name": "Philipp Scambor",
+            "email": "philipp.scambor@digit-one.com"
         },
         {
-            "name": "SahinU88",
-            "email": "sahin.ucar@towa.at"
+            "name": "Islam Mechtijev",
+            "email": "islam.mechtijev@digit-one.com"
         }
     ],
     "require-dev": {
@@ -22,7 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Towa\\Acf\\": "src/"
+            "DigitOne\\Acf\\": "src/"
         }
+    },
+    "require": {
+        "illuminate/support": "^8.0.0"
     }
 }

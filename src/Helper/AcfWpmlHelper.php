@@ -1,6 +1,6 @@
 <?php
 
-namespace Towa\Acf\Helper;
+namespace DigitOne\Acf\Helper;
 
 abstract class AcfWpmlHelper
 {
