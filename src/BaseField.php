@@ -68,11 +68,11 @@ class BaseField
      * This method is intended to be overwritten by child classes that need 
      * specific transform logic.
      * 
-     * @param array $data to transform
+     * @param mixed $data to transform
      * 
-     * @return array the transformed data
+     * @return mixed the transformed data
      */
-    public function transform(array $data): array
+    public function transform(mixed $data): mixed
     {
         return $data;
     }

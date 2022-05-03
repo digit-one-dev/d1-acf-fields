@@ -39,12 +39,12 @@ class FieldGroup
     /**
      * Fetches the data of the fields of this FieldGroup
      * 
-     * @param int post_id (optional) the post id to pass onto ACF get_field()
+     * @param mixed post_id (optional) the post id to pass onto ACF get_field()
      * @return FieldGroup the updated instance
      */
-    public function fetch(int $post_id = false)
+    public function fetch(mixed $post_id = false)
     {
-        $this->acf_data = get_field($this->wrapper_group->get_name(), $post_id);
+        $this->acf_data = get_field($this->wrapper_group->get_name(), $post_id) ?? [];
 
         return $this;
     }

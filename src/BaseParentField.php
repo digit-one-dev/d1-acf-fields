@@ -85,11 +85,11 @@ class BaseParentField extends BaseField
      * Recursively calls the transform methods of the sub_fields
      * with their data.
      * 
-     * @param array data that is returned by ACF get_field() for this field
+     * @param mixed data that is returned by ACF get_field() for this field
      * 
-     * @return array of recursively transformed data
+     * @return mixed of recursively transformed data
      */
-    public function transform(array $data): array
+    public function transform(mixed $data): mixed
     {
         return collect($data)
             ->mapWithKeys(function($value, $key) {
