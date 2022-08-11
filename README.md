@@ -1,8 +1,8 @@
-# Towa ACF Fields
+# Digit-One ACF Fields
 
 ## Overview
 
-* Current Stable Release: [v3.0.1]
+* Current Stable Release: [v3.0.2]
 
 ## Documentation
 
@@ -10,4 +10,4 @@
 
 Shortly, there will be a full documentation how to use this library.
 
-[v3.0.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.1
+[v3.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.2

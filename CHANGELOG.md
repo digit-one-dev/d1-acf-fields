@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [v3.0.2]
 
 - added getter for wrapper group on FieldGroup
 
@@ -89,6 +89,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.2
 [v3.0.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.1
 [v3.0.0]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.0
 [v2.2.0]: https://github.com/towa-digital/towa-acf-fields/releases/tag/v2.2.0
