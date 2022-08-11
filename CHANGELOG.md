@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- added getter for wrapper group on FieldGroup
+
 ## [v3.0.1]
 
 ### Changed

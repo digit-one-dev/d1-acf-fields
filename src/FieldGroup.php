@@ -216,4 +216,9 @@ class FieldGroup
     {
         acf_add_local_field_group($this->data);
     }
+
+    public function get_wrapper_group()
+    {
+        return $this->wrapper_group;
+    }
 }
