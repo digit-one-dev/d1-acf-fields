@@ -27,8 +27,12 @@ trait Wrapper {
     /**
      * @return array
      */
-    public function get_wrapper(): ?array
+    public function get_wrapper(): array
     {
-        return $this->args['wrapper'];
+        if (array_key_exists('wrapper', $this->args) {
+            return $this->args['wrapper'];
+        }
+
+        return [];
     }
 }

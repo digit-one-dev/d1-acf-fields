@@ -29,6 +29,10 @@ trait Instructions {
      */
     public function get_instructions(): ?string
     {
-        return $this->args['instructions'];
+        if (array_key_exists('instructions', $this->args) {
+            return $this->args['instructions'];
+        }
+
+        return "";
     }
 }

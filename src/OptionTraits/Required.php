@@ -27,6 +27,10 @@ trait Required {
      */
     public function is_required(): ?bool
     {
-        return $this->args['required'];
+        if (array_key_exists('required', $this->args) {
+            return $this->args['required'];
+        }
+
+        return false;
     }
 }

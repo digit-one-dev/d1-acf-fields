@@ -31,6 +31,10 @@ trait ConditionalLogic {
      */
     public function get_conditional_logic(): array
     {
-        return $this->args['conditional_logic'] ?? [];
+        if (array_key_exists('conditional_logic', $this->args) {
+            return $this->args['conditional_logic'];
+        }
+        
+        return [];
     }
 }
