@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+### Fixed
+
+- Repeater transform (is different to standard group transform and therefore had to be implemented inside Repeater.php)
+
 ## [v3.0.2]
 
 - added getter for wrapper group on FieldGroup
