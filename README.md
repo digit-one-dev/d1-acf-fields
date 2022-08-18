@@ -2,7 +2,7 @@
 
 ## Overview
 
-* Current Stable Release: [v3.0.2]
+* Current Stable Release: [v3.0.3]
 
 ## Documentation
 
@@ -10,4 +10,4 @@
 
 Shortly, there will be a full documentation how to use this library.
 
-[v3.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.2
+[v3.0.3]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.3
