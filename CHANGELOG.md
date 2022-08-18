@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+### Fixed
+
+- Enable nullable getters for options that are not set
+
 ## [v3.0.3]
 
 ### Fixed

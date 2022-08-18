@@ -25,7 +25,7 @@ trait Required {
     /**
      * @return bool
      */
-    public function is_required(): bool
+    public function is_required(): ?bool
     {
         return $this->args['required'];
     }

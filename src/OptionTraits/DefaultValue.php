@@ -27,7 +27,7 @@ trait DefaultValue {
     /**
      * @return mixed
      */
-    public function get_default_value(): mixed
+    public function get_default_value(): ?mixed
     {
         return $this->args['default_value'];
     }

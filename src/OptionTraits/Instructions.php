@@ -27,7 +27,7 @@ trait Instructions {
     /**
      * @return string
      */
-    public function get_instructions(): string
+    public function get_instructions(): ?string
     {
         return $this->args['instructions'];
     }
