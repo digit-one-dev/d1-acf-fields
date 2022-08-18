@@ -29,7 +29,7 @@ trait Instructions {
      */
     public function get_instructions(): ?string
     {
-        if (array_key_exists('instructions', $this->args) {
+        if (array_key_exists('instructions', $this->args)) {
             return $this->args['instructions'];
         }
 

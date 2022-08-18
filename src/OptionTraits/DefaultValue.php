@@ -29,7 +29,7 @@ trait DefaultValue {
      */
     public function get_default_value(): mixed
     {
-        if (array_key_exists('default_value', $this->args) {
+        if (array_key_exists('default_value', $this->args)) {
             return $this->args['default_value'];
         }
         
