@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [v3.0.4]
 
 ### Fixed
 
@@ -101,6 +101,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.0.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.4
 [v3.0.3]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.3
 [v3.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.2
 [v3.0.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.1
