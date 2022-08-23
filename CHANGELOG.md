@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [v3.0.5]
+
+### Refactored
+
+- Do not overwrite sub_fields of BaseParentField if sub_fields-method is called (just add them to existing sub_fields)
+
 ## [v3.0.4]
 
 ### Fixed
@@ -101,6 +108,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.0.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.5
 [v3.0.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.4
 [v3.0.3]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.3
 [v3.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.2
