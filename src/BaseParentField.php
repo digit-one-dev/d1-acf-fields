@@ -9,23 +9,38 @@ class BaseParentField extends BaseField
     protected $sub_fields = [];
 
     /**
+     * Adds sub_fields to the instance. 
+     * If there are already sub_fields present on the instance
+     * they are merged together.
+     * 
      * @param array[BaseField] sub_fields of this field
      * 
      * @return self the updated instance
      */
     public function sub_fields(array $sub_fields = []): self
     {
-        $this->set_sub_fields($sub_fields);
+        $this->sub_fields = array_merge($this->sub_fields, $this->prefix_sub_fields($sub_fields));
 
         return $this;
     }
 
     /**
+     * Sets the sub_fields of the instance. 
+     * If there are already sub_fields present they are overwritten.
+     * 
      * @param array[BaseField] sub_fields of this field
      */
     public function set_sub_fields(array $sub_fields = [])
     {
-        $this->sub_fields = collect($sub_fields)
+        $this->sub_fields = $this->prefix_sub_fields($sub_fields);
+    }
+
+    /**
+     * @param array[BaseField] sub_fields of this field
+     */
+    private function prefix_sub_fields(array $sub_fields = [])
+    {
+        return collect($sub_fields)
             ->mapWithKeys(function ($field, $key) {
               if (!is_subclass_of($field, BaseField::class)) {
                   error_log("WARN: set_sub_fields called with an Array that contains something that is not of type BaseField: " . print_r($field, true));
