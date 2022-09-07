@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [v3.1]
+
+### Fixed
+
+- Proper recursive sub_fields prefixing (this changes the keys of nested subfields: e.g. a Repeater inside a Layout - DATA THAT WAS SAVED PREVIOUSLY WILL BE LOST AS THE KEYS CHANGE)
+
 ## [v3.0.5]
 
 ### Refactored
@@ -108,6 +114,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.1
 [v3.0.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.5
 [v3.0.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.4
 [v3.0.3]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.3
