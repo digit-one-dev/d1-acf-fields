@@ -1,6 +1,12 @@
 # Changelog
 
 
+## [unreleased]
+
+### Fixed
+
+- Proper recursive sub_fields prefixing
+
 ## [v3.0.5]
 
 ### Refactored

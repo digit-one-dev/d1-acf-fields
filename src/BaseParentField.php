@@ -19,7 +19,7 @@ class BaseParentField extends BaseField
      */
     public function sub_fields(array $sub_fields = []): self
     {
-        $this->sub_fields = array_merge($this->sub_fields, $this->prefix_sub_fields($sub_fields));
+        $this->sub_fields = array_merge($this->sub_fields, $this->prefix_sub_fields($sub_fields, $this->get_key()));
 
         return $this;
     }
@@ -32,22 +32,26 @@ class BaseParentField extends BaseField
      */
     public function set_sub_fields(array $sub_fields = [])
     {
-        $this->sub_fields = $this->prefix_sub_fields($sub_fields);
+        $this->sub_fields = $this->prefix_sub_fields($sub_fields, $this->get_key());
     }
 
     /**
      * @param array[BaseField] sub_fields of this field
      */
-    private function prefix_sub_fields(array $sub_fields = [])
+    private function prefix_sub_fields(array $sub_fields = [], $prefix = "")
     {
         return collect($sub_fields)
-            ->mapWithKeys(function ($field, $key) {
+            ->mapWithKeys(function ($field, $key) use ($prefix) {
               if (!is_subclass_of($field, BaseField::class)) {
                   error_log("WARN: set_sub_fields called with an Array that contains something that is not of type BaseField: " . print_r($field, true));
                   return false;
               }
 
-              $field->set_prefix($this->get_key());
+              $field->set_prefix($prefix);
+
+              if (property_exists($field, 'sub_fields')) {
+                $this->prefix_sub_fields($field->sub_fields, $field->get_key());
+              }
 
               return [ $field->get_name() => $field ];
             })->filter()->toArray();
