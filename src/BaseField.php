@@ -60,7 +60,9 @@ class BaseField
             'wpml_cf_preferences' => $this->get_wpml_translation_preference(),
         ];
 
-        return array_merge($defaults, $parameter, $this->args);
+        return array_merge($defaults, $parameter, $this->args, [
+            'conditional_logic' => $this->build_conditional_logic()
+        ]);
     }
 
     /**

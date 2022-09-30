@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+### Added
+
+- ConditionalLogic builder that supports recursive build (to avoid key missmatches)
 
 ## [v3.1]
 

@@ -2,18 +2,28 @@
 
 namespace DigitOne\Acf\OptionTraits;
 
+use DigitOne\Acf\ConditionalLogic\ConditionalLogic as ConditionalLogicBuilder;
+
 
 trait ConditionalLogic {
     /**
-     * @param array $conditional_logic
+     * @param mixed $conditional_logic
      *
      * @return self the updated instance
      */
-    public function conditional_logic(array $conditional_logic): self
+    public function conditional_logic(mixed $conditional_logic): self
     {
         $this->set_conditional_logic($conditional_logic);
 
         return $this;
+    }
+
+    public function build_conditional_logic() {
+        if (($this->conditional_logic ?? false) instanceof ConditionalLogicBuilder) {
+            return $this->conditional_logic->build();
+        }
+
+        return $this->conditional_logic ?? false;
     }
 
     /**
@@ -21,9 +31,9 @@ trait ConditionalLogic {
      * 
      * @return self the updated instance
      */
-    public function set_conditional_logic(array $conditional_logic)
+    public function set_conditional_logic(mixed $conditional_logic)
     {
-        $this->args['conditional_logic'] = $conditional_logic;
+        $this->conditional_logic = $conditional_logic;
     }
 
     /**
@@ -31,10 +41,6 @@ trait ConditionalLogic {
      */
     public function get_conditional_logic(): array
     {
-        if (array_key_exists('conditional_logic', $this->args)) {
-            return $this->args['conditional_logic'];
-        }
-        
-        return [];
+        return $this->conditional_logic ?? false;
     }
 }
