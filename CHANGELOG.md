@@ -1,5 +1,10 @@
 # Changelog
 
+## [v3.2]
+
+### Added
+
+- ConditionalLogic builder that supports recursive build (to avoid key missmatches)
 
 ## [v3.1]
 
@@ -114,6 +119,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2
 [v3.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.1
 [v3.0.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.5
 [v3.0.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.4

@@ -1,6 +1,6 @@
 {
     "name": "digit-one-dev/d1-acf-fields",
-    "license": "MIT",
+    "license": "GPL",
     "description": "ACF Fields Developer SDK",
     "authors": [
         {
@@ -13,7 +13,8 @@
         }
     ],
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^9"
     },
     "scripts": {
         "fix-cs": [
