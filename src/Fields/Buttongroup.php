@@ -3,6 +3,7 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\Choices;
 
 class Buttongroup extends BaseField
 {
@@ -10,4 +11,6 @@ class Buttongroup extends BaseField
     protected $name = 'button_group';
     protected $label = 'Buttongroup';
     protected $type = 'button_group';
+
+    use Choices;
 }

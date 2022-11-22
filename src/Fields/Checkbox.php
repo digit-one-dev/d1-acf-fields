@@ -3,6 +3,7 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\Choices;
 
 /**
  * Checkbox Field for ACF
@@ -21,4 +22,6 @@ class Checkbox extends BaseField
         'layout' => 'vertical',
         'return_format' => 'value',
     ];
+
+    use Choices;
 }
