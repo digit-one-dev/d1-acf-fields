@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+### Added
+
+- choices option trait
+
 ## [v3.2]
 
 ### Added
