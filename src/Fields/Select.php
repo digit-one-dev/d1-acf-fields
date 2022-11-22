@@ -3,6 +3,7 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\Choices;
 
 class Select extends BaseField
 {
@@ -13,4 +14,6 @@ class Select extends BaseField
     protected $args = [
         'choices'   => [],
     ];
+
+    use Choices;
 }

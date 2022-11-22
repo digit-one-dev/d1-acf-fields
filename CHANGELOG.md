@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.2.1]
+
+### Added
+
+- choices option trait
+
 ## [v3.2]
 
 ### Added
@@ -119,6 +125,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v3.2.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.1
 [v3.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2
 [v3.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.1
 [v3.0.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.0.5
