@@ -14,10 +14,6 @@ class FlexibleContent extends BaseField
     protected $name = 'flexible_content';
     protected $type = 'flexible_content';
     protected $label = 'Flexible Content';
-    protected $args = [
-        'layouts' => [],
-    ];
-
 
     private $layouts = [];
 
