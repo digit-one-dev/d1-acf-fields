@@ -1,5 +1,13 @@
 # Changelog
 
+## [unreleased]
+
+### Added
+
+- User field
+- Multiple option trait (used by user field)
+- Add layouts method to FlexibleContent and enable recursive transformation for FlexibleContent layouts
+
 ## [v3.2.1]
 
 ### Added
