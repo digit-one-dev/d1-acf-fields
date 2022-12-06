@@ -1,5 +1,15 @@
 # Changelog
 
+## [unreleased]
+
+### Added
+
+- Static method 'make' for BaseField that allows cleaner Field instanciation
+
+### Refactored
+
+- FieldGroup such that wrapper_group, acf_data and fetched_post_id are acessible from child classes
+
 ## [v3.2.2]
 
 ### Added
