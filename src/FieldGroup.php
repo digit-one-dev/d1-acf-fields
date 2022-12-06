@@ -19,14 +19,19 @@ class FieldGroup
         'location' => [],
     ];
 
-    private $acf_data = [];
+    protected $acf_data = [];
 
     /**
      * Fields of a FieldGroup are registered without a wrapper per default.
      * This wrapper group ensures that get_field($name) returns the data of this FieldGroup 
      * (the data of its children)
      */
-    private $wrapper_group;
+    protected $wrapper_group;
+
+    /**
+     * The provided post_id for the latest fetch
+     */
+    protected $fetched_post_id;
 
 
     public function __construct(string $name, string $label = '')
@@ -45,6 +50,7 @@ class FieldGroup
     public function fetch(mixed $post_id = false)
     {
         $this->acf_data = get_field($this->wrapper_group->get_name(), $post_id) ?? [];
+        $this->fetched_post_id = $post_id;
 
         return $this;
     }
