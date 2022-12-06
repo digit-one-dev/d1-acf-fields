@@ -38,9 +38,15 @@ class BaseField
         $this->post_construct();
     }
 
+    /**
+     * Returns a new instance of the called class.
+     */
     public static function make($name)
     {
-        return (new self())->name($name);
+        // FYI: for class A extends BaseField
+        // new self() would return a BaseField whereas 
+        // new static() returns an instance of A.
+        return (new static())->name($name);
     }
 
     /**
