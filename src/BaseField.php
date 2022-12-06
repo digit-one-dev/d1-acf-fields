@@ -38,6 +38,11 @@ class BaseField
         $this->post_construct();
     }
 
+    public static function make($name)
+    {
+        return (new self())->name($name);
+    }
+
     /**
      * Method to be extended by subclasses to add their specific logic after construction.
      */
