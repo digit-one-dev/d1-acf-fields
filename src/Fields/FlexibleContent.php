@@ -2,40 +2,43 @@
 
 namespace DigitOne\Acf\Fields;
 
-use DigitOne\Acf\BaseField;
+use DigitOne\Acf\BaseParentField;
 
 /**
  * Flexible Content Field for ACF
  * Check the details and options here: https://www.advancedcustomfields.com/resources/flexible-content/
+ * 
+ * Note that FlexibleContet uses layouts in contrast to any other Acf BaseParentField which are all using sub_fields.
+ * As the internal requirements for layouts and sub_fields are roughly the same (expect for the transformation method)
+ * this class uses BaseParentField->$sub_fields under the hood to manage her layouts.
  */
-class FlexibleContent extends BaseField
+class FlexibleContent extends BaseParentField
 {
     protected $prefix;
     protected $name = 'flexible_content';
     protected $type = 'flexible_content';
     protected $label = 'Flexible Content';
 
-    private $layouts = [];
-
-
     /**
+     * Adds the provided layouts 
+     * 
      * @param mixed $layouts
      *
      * @return self the updated instance
      */
     public function layouts(mixed $layouts): self
     {
-        $this->set_layouts(array_merge($this->layouts, $layouts));
-
-        return $this;
+        return $this->sub_fields($layouts);
     }
 
     /**
+     * Sets the layouts
+     * 
      * @param mixed $layouts
      */
     public function set_layouts(mixed $layouts)
     {
-        $this->layouts = $layouts;
+        $this->set_sub_fields($layouts);
     }
 
     /**
@@ -43,7 +46,7 @@ class FlexibleContent extends BaseField
      */
     public function get_layouts(): mixed
     {
-        return $this->layouts;
+        return $this->get_sub_fields();
     }
 
     /**
@@ -55,29 +58,32 @@ class FlexibleContent extends BaseField
      */
     public function build(array $parameter = []): array
     {
-        if (!$this->layouts) {
-            return parent::build($parameter);
-        }
+        $built = parent::build($parameter);
+        
+        $built['layouts'] = $built['sub_fields'];
+        unset($built['sub_fields']);
 
-        return parent::build(array_merge($parameter, [
-            'layouts' => $this->build_layouts()
-        ]));
+        return $built;
     }
 
     /**
-     * Recursively builds the layouts of this field.
+     * Recursively calls the transform methods of the layouts
+     * with their data.
      * 
-     * @return array of acf registration data
+     * @param mixed data that is returned by ACF get_field() for this field
+     * 
+     * @return mixed of recursively transformed data
      */
-    private function build_layouts(): array
+    public function transform(mixed $data): mixed
     {
-        if (!$this->layouts) {
-            return [];
-        }
-
-        return collect($this->layouts)
+        return collect($data)
             ->map(function($layout) {
-                return $layout->build();
+                if (!array_key_exists($layout['acf_fc_layout'], $this->sub_fields)) {
+                    return $layout;
+                }
+
+                $layout_obj = $this->sub_fields[$layout['acf_fc_layout']];
+                return $layout_obj->transform($layout);
             })->toArray();
     }
 }
