@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [unreleased]
+
+### Added
+
+- Recursive prefixing and transformation for FelxibleContent fields
+
 ## [v3.2.3]
 
 ### Added
