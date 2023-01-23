@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+### Fixed
+
+- small fix in FlexibleContent Field to avoid warning
+
 
 ## [v3.2.4]
 
