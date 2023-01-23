@@ -78,7 +78,7 @@ class FlexibleContent extends BaseParentField
     {
         return collect($data)
             ->map(function($layout) {
-                if (!array_key_exists($layout['acf_fc_layout'], $this->sub_fields)) {
+                if (!is_array($layout) || !array_key_exists($layout['acf_fc_layout'], $this->sub_fields)) {
                     return $layout;
                 }
 
