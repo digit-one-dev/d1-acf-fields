@@ -12,5 +12,5 @@ class CloneField extends BaseField
     protected $label = 'Clone';
     protected $args = [
         'clone' => []
-    ]
+    ];
 }

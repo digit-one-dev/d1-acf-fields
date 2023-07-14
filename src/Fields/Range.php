@@ -5,20 +5,24 @@ namespace DigitOne\Acf\Fields;
 use DigitOne\Acf\BaseField;
 use DigitOne\Acf\OptionTraits\Append;
 use DigitOne\Acf\OptionTraits\AriaLabel;
-use DigitOne\Acf\OptionTraits\Placeholder;
+use DigitOne\Acf\OptionTraits\Max;
+use DigitOne\Acf\OptionTraits\Min;
 use DigitOne\Acf\OptionTraits\Prepend;
 use DigitOne\Acf\OptionTraits\Required;
+use DigitOne\Acf\OptionTraits\Step;
 
-class Email extends BaseField
+class Range extends BaseField
 {
     protected $prefix;
-    protected $name = 'email';
-    protected $type = 'email';
-    protected $label = 'E-Mail';
+    protected $name = 'range';
+    protected $type = 'range';
+    protected $label = 'Bereich';
 
     use AriaLabel;
     use Required;
-    use Placeholder;
+    use Min;
+    use Max;
+    use Step;
     use Prepend;
     use Append;
 }
