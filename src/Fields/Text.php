@@ -16,9 +16,8 @@ class Text extends BaseField
     protected $type = 'text';
 
     use MaxLength;
-    use Placeholder;
     use Prepend;
     use Append;
-
+    use Placeholder;
 }
 
