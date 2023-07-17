@@ -3,6 +3,10 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseParentField;
+use DigitOne\Acf\OptionTraits\ButtonLabel;
+use DigitOne\Acf\OptionTraits\Layouts;
+use DigitOne\Acf\OptionTraits\Max;
+use DigitOne\Acf\OptionTraits\Min;
 
 /**
  * Flexible Content Field for ACF
@@ -86,4 +90,9 @@ class FlexibleContent extends BaseParentField
                 return $layout_obj->transform($layout);
             })->toArray();
     }
+
+    use Min;
+    use Max;
+    use ButtonLabel;
+    use Layouts;
 }
