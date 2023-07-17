@@ -3,7 +3,13 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\Ajax;
+use DigitOne\Acf\OptionTraits\AllowNull;
 use DigitOne\Acf\OptionTraits\Choices;
+use DigitOne\Acf\OptionTraits\Multiple;
+use DigitOne\Acf\OptionTraits\Placeholder;
+use DigitOne\Acf\OptionTraits\ReturnFormat;
+use DigitOne\Acf\OptionTraits\Ui;
 
 class Select extends BaseField
 {
@@ -16,4 +22,10 @@ class Select extends BaseField
     ];
 
     use Choices;
+    use ReturnFormat;
+    use Multiple;
+    use AllowNull;
+    use Ui;
+    use Ajax;
+    use Placeholder;
 }
