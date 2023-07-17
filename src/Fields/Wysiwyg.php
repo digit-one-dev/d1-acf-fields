@@ -3,6 +3,10 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\Tabs;
+use DigitOne\Acf\OptionTraits\Toolbar;
+use DigitOne\Acf\OptionTraits\MediaUpload;
+use DigitOne\Acf\OptionTraits\Delay;
 
 class Wysiwyg extends BaseField
 {
@@ -15,4 +19,9 @@ class Wysiwyg extends BaseField
         'toolbar' => 'full',
         'media_upload'  => 0,
     ];
+
+    use Tabs;
+    use Toolbar;
+    use MediaUpload;
+    use Delay;
 }

@@ -9,6 +9,7 @@ use DigitOne\Acf\OptionTraits\MimeTypes;
 use DigitOne\Acf\OptionTraits\MinSize;
 use DigitOne\Acf\OptionTraits\ReturnFormat;
 
+
 class File extends BaseField
 {
     protected $prefix;
