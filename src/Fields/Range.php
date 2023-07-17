@@ -4,11 +4,9 @@ namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
 use DigitOne\Acf\OptionTraits\Append;
-use DigitOne\Acf\OptionTraits\AriaLabel;
 use DigitOne\Acf\OptionTraits\Max;
 use DigitOne\Acf\OptionTraits\Min;
 use DigitOne\Acf\OptionTraits\Prepend;
-use DigitOne\Acf\OptionTraits\Required;
 use DigitOne\Acf\OptionTraits\Step;
 
 class Range extends BaseField
@@ -18,8 +16,6 @@ class Range extends BaseField
     protected $type = 'range';
     protected $label = 'Bereich';
 
-    use AriaLabel;
-    use Required;
     use Min;
     use Max;
     use Step;

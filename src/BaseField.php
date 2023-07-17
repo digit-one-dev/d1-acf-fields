@@ -3,11 +3,11 @@
 namespace DigitOne\Acf;
 
 use DigitOne\Acf\Helper\AcfWpmlHelper;
+use DigitOne\Acf\OptionTraits\AriaLabel;
 use DigitOne\Acf\OptionTraits\Instructions;
 use DigitOne\Acf\OptionTraits\Required;
 use DigitOne\Acf\OptionTraits\DefaultValue;
 use DigitOne\Acf\OptionTraits\ConditionalLogic;
-use DigitOne\Acf\OptionTraits\Placeholder;
 use DigitOne\Acf\OptionTraits\Wrapper;
 
 class BaseField
@@ -17,7 +17,7 @@ class BaseField
     use DefaultValue;
     use ConditionalLogic;
     use Wrapper;
-    use Placeholder;
+    use AriaLabel;
 
     protected $prefix;
     protected $name;

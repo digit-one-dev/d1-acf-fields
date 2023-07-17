@@ -13,7 +13,6 @@ use DigitOne\Acf\OptionTraits\MinHeight;
 use DigitOne\Acf\OptionTraits\MinSize;
 use DigitOne\Acf\OptionTraits\MinWidth;
 use DigitOne\Acf\OptionTraits\PreviewSize;
-use DigitOne\Acf\OptionTraits\Required;
 use DigitOne\Acf\OptionTraits\ReturnFormat;
 
 class Image extends BaseField
@@ -23,8 +22,6 @@ class Image extends BaseField
     protected $label = 'Bild';
     protected $type = 'image';
 
-    use AriaLabel;
-    use Required;
     use ReturnFormat;
     use Library;
     use MaxWidth;

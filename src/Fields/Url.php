@@ -3,8 +3,7 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
-use DigitOne\Acf\OptionTraits\AriaLabel;
-use DigitOne\Acf\OptionTraits\Required;
+use DigitOne\Acf\OptionTraits\Placeholder;
 
 class Url extends BaseField
 {
@@ -13,6 +12,5 @@ class Url extends BaseField
     protected $label = 'Url';
     protected $type = 'url';
 
-    use AriaLabel;
-    use Required;
+    use Placeholder;
 }
