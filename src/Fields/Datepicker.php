@@ -3,6 +3,9 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\DisplayFormat;
+use DigitOne\Acf\OptionTraits\FirstDay;
+use DigitOne\Acf\OptionTraits\ReturnFormat;
 
 class Datepicker extends BaseField
 {
@@ -15,4 +18,8 @@ class Datepicker extends BaseField
         'return_format'  => 'd.m.Y',
         'first_day'      => 1,
     ];
+
+    use ReturnFormat;
+    use DisplayFormat;
+    use FirstDay;
 }

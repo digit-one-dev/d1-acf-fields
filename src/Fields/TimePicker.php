@@ -3,6 +3,8 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseField;
+use DigitOne\Acf\OptionTraits\DisplayFormat;
+use DigitOne\Acf\OptionTraits\ReturnFormat;
 
 class TimePicker extends BaseField
 {
@@ -14,4 +16,7 @@ class TimePicker extends BaseField
         'display_format' => 'H:i',
         'return_format'  => 'H:i',
     ];
+
+    use DisplayFormat;
+    use ReturnFormat;
 }
