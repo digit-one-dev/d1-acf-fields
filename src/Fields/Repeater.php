@@ -3,6 +3,13 @@
 namespace DigitOne\Acf\Fields;
 
 use DigitOne\Acf\BaseParentField;
+use DigitOne\Acf\OptionTraits\ButtonLabel;
+use DigitOne\Acf\OptionTraits\Collapsed;
+use DigitOne\Acf\OptionTraits\Layout;
+use DigitOne\Acf\OptionTraits\Max;
+use DigitOne\Acf\OptionTraits\Min;
+use DigitOne\Acf\OptionTraits\Pagination;
+use DigitOne\Acf\OptionTraits\RowsPerPage;
 
 class Repeater extends BaseParentField
 {
@@ -37,4 +44,12 @@ class Repeater extends BaseParentField
                     })->toArray();
             })->toArray();
     }
+
+    use Layout;
+    use Min;
+    use Max;
+    use Pagination;
+    use Collapsed;
+    use ButtonLabel;
+    use RowsPerPage;
 }

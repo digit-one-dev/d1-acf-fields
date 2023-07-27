@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+## [v4.0.0]
+
+- Added all the options to the fields of ACF version 3.1 and also created some new fields
+
 ## [v3.2.5]
 
 ### Fixed
