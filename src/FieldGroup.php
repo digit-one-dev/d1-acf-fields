@@ -228,7 +228,7 @@ class FieldGroup
      */
     public function get_acf_data()
     {
-        return $this->acf_data;
+        return $this->data;
     }
 
     public function get_wrapper_group()
