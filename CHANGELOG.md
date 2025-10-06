@@ -1,7 +1,6 @@
 # Changelog
 
-## [Unreleased]
-
+## [v4.0.1]
 - Addded new get_acf_data function to allow static acf definitions
 
 ## [v4.0.0]
