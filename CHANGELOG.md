@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Addded new get_acf_data function to allow static acf definitions
+
 ## [v4.0.0]
 
 - Added all the options to the fields of ACF version 3.1 and also created some new fields
@@ -162,6 +164,7 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v4.0.0]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v4.0.0
 [v3.2.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.5
 [v3.2.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.4
 [v3.2.3]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.3
