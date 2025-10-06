@@ -1,6 +1,6 @@
 # Changelog
 
-[unreleased]
+## [v4.0.2]
 
 - fix typo
 
@@ -167,6 +167,8 @@
 
 - from bitbucket to github ( going opensource :muscle: :heart_eyes: )
 
+[v4.0.2]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v4.0.2
+[v4.0.1]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v4.0.1
 [v4.0.0]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v4.0.0
 [v3.2.5]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.5
 [v3.2.4]: https://github.com/digit-one-dev/d1-acf-fields/releases/tag/v3.2.4
