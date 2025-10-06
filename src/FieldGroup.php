@@ -223,6 +223,14 @@ class FieldGroup
         acf_add_local_field_group($this->data);
     }
 
+    /**
+     * @return array the raw ACF data fetched by get_field()
+     */
+    public function get_acf_data()
+    {
+        return $this->acf_data;
+    }
+
     public function get_wrapper_group()
     {
         return $this->wrapper_group;
